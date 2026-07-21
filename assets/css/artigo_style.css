@@ -1,0 +1,108 @@
+:root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .artigo-meta {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .categorias-tags {
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: #ecf0f1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            color: #34495e;
+        }
+
+        /* Layout de Blocos */
+        .artigo-conteudo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .bloco {
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .bloco-texto {
+            line-height: 1.6;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .bloco-imagem {
+            text-align: center;
+        }
+
+        .bloco-imagem img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Classes de Tamanho */
+        .w-25 { width: calc(25% - 15px); }
+        .w-50 { width: calc(50% - 15px); }
+        .w-75 { width: calc(75% - 15px); }
+        .w-100 { width: 100%; }
+
+        @media (max-width: 768px) {
+            .w-25, .w-50, .w-75 { width: 100%; }
+            .container { padding: 20px; }
+        }
+
+        .footer-meta {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-style: italic;
+            color: #95a5a6;
+        }

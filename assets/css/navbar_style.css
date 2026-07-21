@@ -1,0 +1,335 @@
+/* =========================================================
+   Navbar - Indexpedia
+   Estilos autocontidos para o componente de navegação.
+   ========================================================= */
+
+:root {
+    --nav-primary: #2c3e50;
+    --nav-accent: #3498db;
+    --nav-accent-hover: #2b81b7;
+    --nav-bg: #ffffff;
+    --nav-border: #e5e9ec;
+    --nav-text: #2c3e50;
+    --nav-muted: #8a95a1;
+}
+
+.indexpedia-navbar * {
+    box-sizing: border-box;
+}
+
+.indexpedia-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 64px;
+    padding: 0 24px;
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- Logo ---------- */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-logo img {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+
+/* ---------- Pesquisa ---------- */
+.navbar-search {
+    position: relative;
+    flex: 1 1 auto;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.navbar-search-form {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--nav-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.navbar-search-form:focus-within {
+    border-color: var(--nav-accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.navbar-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    font-size: 0.95em;
+    color: var(--nav-text);
+    background: transparent;
+}
+
+.navbar-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    border: none;
+    background-color: var(--nav-accent);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.navbar-search-btn:hover {
+    background-color: var(--nav-accent-hover);
+}
+
+.navbar-search-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Dropdown de resultados */
+.navbar-search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    max-height: 420px;
+    overflow-y: auto;
+    display: none;
+}
+
+.navbar-search-results.ativo {
+    display: block;
+}
+
+.navbar-search-group-title {
+    padding: 10px 16px 4px;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--nav-muted);
+}
+
+.navbar-search-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--nav-text);
+    transition: background-color 0.12s ease;
+}
+
+.navbar-search-item:hover,
+.navbar-search-item.destacado {
+    background-color: #f4f7f6;
+}
+
+.navbar-search-item img.avatar-mini {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.navbar-search-item .icone-artigo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #eaf3fb;
+    color: var(--nav-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.navbar-search-item .item-texto {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.navbar-search-item .item-titulo {
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-search-item .item-sub {
+    font-size: 0.78em;
+    color: var(--nav-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-search-empty,
+.navbar-search-loading {
+    padding: 16px;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--nav-muted);
+}
+
+/* ---------- Perfil / Dropdown do usuário ---------- */
+.navbar-perfil {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.navbar-perfil-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px 4px 4px;
+    border-radius: 24px;
+    transition: background-color 0.15s ease;
+}
+
+.navbar-perfil-btn:hover,
+.navbar-perfil-btn[aria-expanded="true"] {
+    background-color: #f4f7f6;
+}
+
+.navbar-perfil-btn img.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--nav-border);
+}
+
+.navbar-perfil-nome {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--nav-text);
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-perfil-seta {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--nav-muted);
+    transition: transform 0.15s ease;
+}
+
+.navbar-perfil-btn[aria-expanded="true"] .navbar-perfil-seta {
+    transform: rotate(180deg);
+}
+
+.navbar-perfil-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 190px;
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 6px;
+    display: none;
+    z-index: 1001;
+}
+
+.navbar-perfil-menu.ativo {
+    display: block;
+}
+
+.navbar-perfil-menu a,
+.navbar-perfil-menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 12px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    text-align: left;
+    text-decoration: none;
+    color: var(--nav-text);
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.navbar-perfil-menu a:hover,
+.navbar-perfil-menu button:hover {
+    background-color: #f4f7f6;
+}
+
+.navbar-perfil-menu .separador {
+    height: 1px;
+    margin: 6px 4px;
+    background-color: var(--nav-border);
+    border: none;
+}
+
+.navbar-perfil-menu .item-sair {
+    color: #e74c3c;
+}
+
+/* Botão de login para visitantes não autenticados */
+.navbar-btn-login {
+    background-color: var(--nav-accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.navbar-btn-login:hover {
+    background-color: var(--nav-accent-hover);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 720px) {
+    .indexpedia-navbar {
+        gap: 10px;
+        padding: 0 12px;
+    }
+
+    .navbar-perfil-nome {
+        display: none;
+    }
+
+    .navbar-logo span {
+        display: none;
+    }
+}

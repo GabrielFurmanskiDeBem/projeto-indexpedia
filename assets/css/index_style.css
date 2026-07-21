@@ -1,0 +1,102 @@
+:root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .nav-actions {
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        .btn-create {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .artigos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .artigo-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artigo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .artigo-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .artigo-title {
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+            color: var(--primary-color);
+        }
+
+        .artigo-desc {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .artigo-meta {
+            font-size: 0.8em;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .btn-read {
+            display: block;
+            background: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .no-artigos {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            grid-column: 1 / -1;
+        }
